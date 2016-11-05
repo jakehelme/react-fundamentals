@@ -1,0 +1,19 @@
+{
+  "name": "react-fundamentals",
+  "version": "1.0.0",
+  "description": "React Fundamentals Course - http://courses.reactjsprogram.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakehelme/react-fundamentals.git"
+  },
+  "author": "Jake Helme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakehelme/react-fundamentals/issues"
+  },
+  "homepage": "https://github.com/jakehelme/react-fundamentals#readme"
+}
