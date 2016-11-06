@@ -5,6 +5,7 @@ var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var MainContainer = require('./MainContainer');
+var Loading = require('./Loading');
 
 function StartOver() {
   return (
@@ -16,23 +17,31 @@ function StartOver() {
   )
 }
 
+function Tie (props) {
+  return (
+    <MainContainer>
+      <h1>It's a tie!</h1>
+      <StartOver />
+    </MainContainer>
+  )
+}
+
 function Results(props) {
-  if (props.isLoading){
+  if (props.isLoading === true){
     return (
-      <p> LOADING </p>
+      <Loading text='One Moment' speed={100}/>
     )
   }
 
   if (props.scores[0] === props.scores[1]) {
     return (
-      <MainContainer>
-        <h1>It's a tie!</h1>
-        <StartOver />
-      </MainContainer>
+      <Tie scores={props.scores} playersInfo={props.playersInfo} />
     )
   }
+
   var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1;
   var losingIndex = winningIndex === 0 ? 1 : 0;
+
   return (
     <MainContainer>
       <h1>Results</h1>
@@ -50,9 +59,9 @@ function Results(props) {
 }
 
 Results.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
   playersInfo: PropTypes.array.isRequired,
-  scores: PropTypes.array.isRequired
+  scores: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 module.exports = Results;
